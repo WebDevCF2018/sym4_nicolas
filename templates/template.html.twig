@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <body id="page-top">
+    {% block menu %}
+        <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">Symfony 4</a>
+                <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul  class="navbar-nav ml-auto">
+                        {% for itemMenu in rubriques %}
+                            <li class="nav-item mx-0 mx-lg-1">
+                                <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="./rubriques/
+    {{ itemMenu.getIdrubriques }}">{{ itemMenu.getTitre }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    {% endblock %}
+
+
+    {% block header %} <header class="masthead bg-primary text-white text-center">
+        <div class="container">
+            <h1 class="text-uppercase mb-0">Sym04_nicolas</h1>
+            <hr class="star-light">
+            <h2 class="font-weight-light mb-0">Web Developer - PHP/MySQL/Symfony - User Experience Designer</h2>
+        </div>
+    </header>
+    {% endblock %}
+
+
+
+    {% block cont %}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h1 class="mt-5">{% block titre %}Here is title of this website.{% endblock %}</h1>
+                    <p class="lead">{% block stitre %}And here sub title{% endblock %}</p>
+                    <div class="col-sm-9 col-md-offset-2 col-md-12 text-left">
+                        {% block contenu %}And this is content{% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+
+    </body>
+{% endblock %}

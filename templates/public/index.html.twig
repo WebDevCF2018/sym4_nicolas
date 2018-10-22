@@ -1,0 +1,16 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}sym04_nicolas{% endblock %}
+
+{% block content %}
+
+    {% for item in lespages %}
+        <h2>{{ item.getLetitre }}</h2>
+        <h3>
+            {% for rubriques in item.getLespageslespages %}
+                {{ rubriques.getTitre }} |
+            {% endfor %}
+        </h3>
+
+    {% endfor %}
+{% endblock %}
