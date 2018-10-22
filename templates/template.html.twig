@@ -5,7 +5,7 @@
     {% block menu %}
         <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top">Symfony 4</a>
+                {% block up %}<a class="navbar-brand js-scroll-trigger" href="#page-top"> Symfony 4</a>{% endblock %}
                 <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -14,10 +14,10 @@
                     <ul  class="navbar-nav ml-auto">
                         {% for itemMenu in rubriques %}
                             <li class="nav-item mx-0 mx-lg-1">
-                                <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="./rubriques/
-    {{ itemMenu.getIdrubriques }}">{{ itemMenu.getTitre }}</a>
+                                <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ path("detail_rubriques",{"id":itemMenu.getIdrubriques}) }}">{{ itemMenu.getTitre }}</a>
                             </li>
                         {% endfor %}
+                        <li class="nav-item"> <a class="nav-link" href="{{ path('lespages_index')}}">Admin</a></li>
                     </ul>
                 </div>
             </div>
@@ -27,7 +27,7 @@
 
     {% block header %} <header class="masthead bg-primary text-white text-center">
         <div class="container">
-            <h1 class="text-uppercase mb-0">Sym04_nicolas</h1>
+            <h1 class="text-uppercase mb-0"><a >Sym04_nicolas</a></h1>
             <hr class="star-light">
             <h2 class="font-weight-light mb-0">Web Developer - PHP/MySQL/Symfony - User Experience Designer</h2>
         </div>
@@ -43,12 +43,13 @@
                     <h1 class="mt-5">{% block titre %}Here is title of this website.{% endblock %}</h1>
                     <p class="lead">{% block stitre %}And here sub title{% endblock %}</p>
                     <div class="col-sm-9 col-md-offset-2 col-md-12 text-left">
-                        {% block contenu %}And this is content{% endblock %}
+                        {% block content %}And this is content{% endblock %}
                     </div>
                 </div>
             </div>
         </div>
     {% endblock %}
+
 
 
     </body>

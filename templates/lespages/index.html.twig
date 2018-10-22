@@ -1,0 +1,39 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Lespages index{% endblock %}
+
+{% block body %}
+    <h1>Lespages index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Idlespages</th>
+                <th>Letitre</th>
+                <th>Letexte</th>
+                <th>Ladate</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for lespage in lespages %}
+            <tr>
+                <td>{{ lespage.idlespages }}</td>
+                <td>{{ lespage.letitre }}</td>
+                <td>{{ lespage.letexte }}</td>
+                <td>{{ lespage.ladate ? lespage.ladate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('lespages_show', {'idlespages': lespage.idlespages}) }}">show</a>
+                    <a href="{{ path('lespages_edit', {'idlespages': lespage.idlespages}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('lespages_new') }}">Create new</a>
+{% endblock %}

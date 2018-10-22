@@ -17,3 +17,6 @@
 
 ###phpstorm
 /.idea
+
+###git
+.git

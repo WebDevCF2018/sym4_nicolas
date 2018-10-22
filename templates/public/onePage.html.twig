@@ -1,0 +1,12 @@
+{% extends 'template.html.twig' %}
+{% block titre %}{{ parent() }} - Detail of this articles{% endblock %}
+{% block up %}<a href="{{ path('accueil') }}">back to the home page</a>{% endblock %}
+
+{% block content %}
+    <h2>{{ pages.getLetitre}}</h2>
+    <h3>{% for item in pages.getRubriquesrubriques %}
+        <a href="">{{ item.getTitre }}</a>
+    {% endfor %}
+    </h3>
+    <p>{{ pages.getLetexte }}</p>
+    <h6><small><strong>By {{ pages.getAuteurauteur.getLenom }} on {{ pages.getLadate|date("d/m/Y à H \\h i \\m") }}</strong></small></h6>{% endblock %}

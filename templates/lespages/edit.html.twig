@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Lespages{% endblock %}
+
+{% block body %}
+    <h1>Edit Lespages</h1>
+
+    {{ include('lespages/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('lespages_index') }}">back to list</a>
+
+    {{ include('lespages/_delete_form.html.twig') }}
+{% endblock %}

@@ -2,15 +2,19 @@
 
 {% block title %}sym04_nicolas{% endblock %}
 
-{% block content %}
+{% block titre %}Where is my Cactus ?{% endblock %}
+{% block stitre %}an history of cactus{% endblock %}
 
+
+{% block content %}
     {% for item in lespages %}
         <h2>{{ item.getLetitre }}</h2>
         <h3>
-            {% for rubriques in item.getLespageslespages %}
-                {{ rubriques.getTitre }} |
+            {% for categ in item.getRubriquesrubriques %}
+                <small><a href="{{ path('detail_rubriques',{'id':categ.getIdrubriques}) }}">{{ categ.getTitre }}</a></small> |
             {% endfor %}
         </h3>
-
+        <p>{{ item.getLetexte|truncate(350,true) }} <a href="{{ path("detail_pages",{'id':item.getIdlespages}) }}">read more</a></p>
+        <h6><small><strong>By {{ item.getAuteurauteur.getLenom }} on {{ item.getLadate|date("d/m/Y à H \\h i \\m") }}</strong></small></h6>
     {% endfor %}
 {% endblock %}

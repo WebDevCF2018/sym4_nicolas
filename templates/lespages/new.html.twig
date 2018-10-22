@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Lespages{% endblock %}
+
+{% block body %}
+    <h1>Create new Lespages</h1>
+
+    {{ include('lespages/_form.html.twig') }}
+
+    <a href="{{ path('lespages_index') }}">back to list</a>
+{% endblock %}

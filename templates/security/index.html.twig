@@ -1,0 +1,26 @@
+{% extends 'template.html.twig' %}
+{% block title %}{{ parent() }} - connexion{% endblock %}
+
+{% block titre %}{{ parent() }} - connexion{% endblock %}
+{% block stitre %}Connect for manage this webiste{% endblock %}
+{% block menu %}
+    <a href="{{ path('accueil') }}">back to the home page</a>
+{% endblock %}
+
+
+{% block content %}
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <form action="{{ path('login') }}" method="post">
+        <label for="username">You're id : </label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}" />
+
+        <label for="password">You're passxord</label>
+        <input type="password" id="password" name="_password" />
+
+
+        <button type="submit">Connect</button>
+    </form>
+{% endblock %}

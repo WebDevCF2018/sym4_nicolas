@@ -1,0 +1,18 @@
+{% extends 'template.html.twig' %}
+
+{% block up %}<a href="{{ path('accueil') }}">back to the home page</a>{% endblock %}
+{% block content %}
+    {% if lespage is empty  %}
+        <h3><small>Not articles in this rubric<a href="{{ path("accueil") }}"> back to the home page</a></small></h3>
+    {% endif %}
+    {% for item in lespage %}
+        <h2>{{ item.getLetitre }}</h2>
+        <h3>
+            {% for categ in item.getRubriquesrubriques %}
+                <a href="{{ path ("detail_rubriques",{"id":categ.getIdrubriques}) }}">{{ categ.getTitre }}</a> |
+            {% endfor %}
+        </h3>
+        <p>{{ item.getLetexte|truncate(350,true) }} <a href="{{ path("detail_pages",{'id':item.getIdlespages}) }}">Read more</a></p>
+        <h6><small><strong>By {{ item.getAuteurauteur.getLenom }} on {{ item.getLadate|date("d/m/Y à H \\h i \\m") }}</strong></small></h6>
+    {% endfor %}
+{% endblock %}

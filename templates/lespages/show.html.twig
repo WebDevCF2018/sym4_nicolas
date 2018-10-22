@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lespages{% endblock %}
+
+{% block body %}
+    <h1>Lespages</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Idlespages</th>
+                <td>{{ lespage.idlespages }}</td>
+            </tr>
+            <tr>
+                <th>Letitre</th>
+                <td>{{ lespage.letitre }}</td>
+            </tr>
+            <tr>
+                <th>Letexte</th>
+                <td>{{ lespage.letexte }}</td>
+            </tr>
+            <tr>
+                <th>Ladate</th>
+                <td>{{ lespage.ladate ? lespage.ladate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('lespages_index') }}">back to list</a>
+
+    <a href="{{ path('lespages_edit', {'idlespages': lespage.idlespages}) }}">edit</a>
+
+    {{ include('lespages/_delete_form.html.twig') }}
+{% endblock %}

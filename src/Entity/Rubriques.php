@@ -41,6 +41,17 @@ class Rubriques
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="Lespages", mappedBy="rubriquesrubriques")
+     * @ORM\OrderBy({"idlespages" = "DESC"})
+     * @ORM\JoinTable(name="lespages_has_rubriques",
+     *     joinColumns={
+     *     @ORM\JoinColumn(name="lespages_has_rubriques",
+     *     referencedColumnName="$idrubriques")
+     *     },
+     *     inverseJoinColumns={
+            @ORM\JoinColumn(name="lespages_idlespages",
+     *     referencedColumnName="$idlespages")
+     *    }
+     *     )
      */
     private $lespageslespages;
 
@@ -108,5 +119,11 @@ class Rubriques
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return (string) $this->getTitre();
+    }
+
 
 }

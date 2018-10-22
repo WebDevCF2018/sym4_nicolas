@@ -75,6 +75,7 @@ class Lespages
     public function __construct()
     {
         $this->rubriquesrubriques = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->setLadate(new \DateTime());
     }
 
     public function getIdlespages(): ?int
