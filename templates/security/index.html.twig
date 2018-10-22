@@ -1,7 +1,7 @@
 {% extends 'template.html.twig' %}
 {% block title %}{{ parent() }} - connexion{% endblock %}
 
-{% block titre %}{{ parent() }} - connexion{% endblock %}
+{% block titre %}Try to connect{% endblock %}
 {% block stitre %}Connect for manage this webiste{% endblock %}
 
 
@@ -10,14 +10,16 @@
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
+    <center>
     <form action="{{ path('login') }}" method="post">
         <label for="username">You're id : </label>
         <input type="text" id="username" name="_username" value="{{ last_username }}" />
 
-        <label for="password">You're passxord</label>
+        <label for="password">You're passord</label>
         <input type="password" id="password" name="_password" />
 
 
         <button type="submit">Connect</button>
     </form>
+    </center>
 {% endblock %}
