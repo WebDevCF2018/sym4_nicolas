@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use  App\Entity\Rubriques;
 
 class SecurityController extends AbstractController
 {
@@ -13,6 +14,8 @@ class SecurityController extends AbstractController
      */
     public function login(AuthenticationUtils $authenticationUtils)
     {
+        $entityManager = $this->getDoctrine()->getManager();
+        $rub = $entityManager->getRepository(Rubriques::class)->findAll();
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
 
@@ -22,6 +25,7 @@ class SecurityController extends AbstractController
         return $this->render('security/index.html.twig', array(
             'last_username' => $lastUsername,
             'error' => $error,
+            'rubriques' => $rub,
         ));
     }
 
