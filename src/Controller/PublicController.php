@@ -17,7 +17,7 @@ class PublicController extends AbstractController
     {
         $entityManager = $this->getDoctrine()->getManager();
         $rub = $entityManager->getRepository(Rubriques::class)->findAll();
-        $page = $entityManager->getRepository(Lespages::class)->findAll();
+        $page = $entityManager->getRepository(Lespages::class)->findBy([],["idlespages"=>"DESC"]);
 
         return $this->render('public/index.html.twig', [
             'rubriques' => $rub,
