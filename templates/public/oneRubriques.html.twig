@@ -1,5 +1,7 @@
 {% extends 'template.html.twig' %}
-
+{% block subheader %}{{ rubrique.getLadesc }}{% endblock %}
+{% block titre %}{{ rubrique.getTitre }}{% endblock %}
+{% block stitre %}{{ rubrique.getLadesc }}git {% endblock %}
 {% block up %}<a href="{{ path('accueil') }}">back to the home page</a>{% endblock %}
 {% block content %}
     {% if lespage is empty  %}

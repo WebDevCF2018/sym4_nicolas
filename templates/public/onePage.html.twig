@@ -8,5 +8,5 @@
         <a href="">{{ item.getTitre }}</a>
     {% endfor %}
     </h3>
-    <p>{{ pages.getLetexte }}</p>
+    <p>{{ pages.getLetexte|nl2br }}</p>
     <h6><small><strong>By {{ pages.getAuteurauteur.getLenom }} on {{ pages.getLadate|date("d/m/Y à H \\h i \\m") }}</strong></small></h6>{% endblock %}
