@@ -14,10 +14,10 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul  class="navbar-nav ml-auto">
                         <li class="nav-item mx-0 mx-lg-1">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ path("lespages_index") }}">Home of administration</a>
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ path("lespages_index") }}">Accueil de l'administration</a>
                         </li>
                         <li class="nav-item mx-0 mx-lg-1">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ path('the_logout')}}">Logout</a>
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ path('the_logout')}}">Déconnexion</a>
                         </li>
                     </ul>
                 </div>
@@ -30,9 +30,9 @@
     <br>
     <br>
     <br>
-    <h1>Write an other article</h1>
+    <h1>Écrire un nouvel article</h1>
 
     {{ include('lespages/_form.html.twig') }}
 
-    <a href="{{ path('lespages_index') }}">back to list</a>
+    <a href="{{ path('lespages_index') }}">Retour à la liste des articles</a>
 {% endblock %}
